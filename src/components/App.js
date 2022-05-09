@@ -85,19 +85,21 @@ function App() {
   }, []);
 
   React.useEffect(() => {
-    if (isLoggedIn === true) {
+    if (isLoggedIn) {
       navigate("/");
     }
   }, [isLoggedIn, navigate]);
 
   React.useEffect(() => {
-    Promise.all([api.getProfile(), api.getCards()])
-      .then(([user, cards]) => {
-        setCurrentUser(user);
-        setCards(cards);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    if (isLoggedIn) {
+      Promise.all([api.getProfile(), api.getCards()])
+        .then(([user, cards]) => {
+          setCurrentUser(user);
+          setCards(cards);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [isLoggedIn]);
 
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
