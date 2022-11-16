@@ -26,4 +26,4 @@
 12. Адаптивная верстка.
 
 
-* [Ссылка на проект GitHub](https://aleksey313.github.io/react-mesto-auth/)
+* [Ссылка на проект GitHub](https://alekseipronin313.github.io/react-mesto-auth/)
